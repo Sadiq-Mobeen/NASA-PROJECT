@@ -11,20 +11,24 @@ const httpGetAllLaunches = (req, res) => {
 
 const httpNewLaunch = (req, res) => {
     const newLaunch = req.body;
-    newLaunch.launchDate = new Date(newLaunch.launchDate)
 
     if(!newLaunch.launchDate || !newLaunch.mission || !newLaunch.rocket || !newLaunch.target){
         return res.status(400).json({
             error: 'Missing required launch property.',
         })
-    }else if(isNaN(newLaunch.launchDate)){
+    }
+
+    newLaunch.launchDate = new Date(newLaunch.launchDate)
+
+    if(isNaN(newLaunch.launchDate)){
         return res.status(400).json({
             error: 'Please enter a valid date.',
         })
     }
-    else{
-        return res.status(201).json(newLaunches(newLaunch))
-    }
+    
+    //return res.status(201).json(newLaunches(newLaunch))
+    return res.status(201).json(newLaunch)
+    
 }
 
 const httpAbortLaunch = (req, res) => {
