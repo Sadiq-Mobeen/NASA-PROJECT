@@ -34,6 +34,8 @@ function newLaunches(launch){
             success: true,
         })
     );
+
+    return launch
 }
 
 function abortLaunchById(launchId){

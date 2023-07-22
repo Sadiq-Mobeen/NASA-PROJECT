@@ -26,9 +26,7 @@ const httpNewLaunch = (req, res) => {
         })
     }
     
-    //return res.status(201).json(newLaunches(newLaunch))
-    return res.status(201).json(newLaunch)
-    
+    return res.status(201).json(newLaunches(newLaunch))    
 }
 
 const httpAbortLaunch = (req, res) => {
